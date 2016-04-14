@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Apple &mdash; fruitbowl 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="fruitbowl 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Pomegranate" href="pomegranate.html"/>
+        <link rel="prev" title="Strawberry" href="strawberry.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> fruitbowl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cherry.html">Cherry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orange.html">Orange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strawberry.html">Strawberry</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Apple</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-apple.analysis_tools">apple.analysis_tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-apple.dim_reduction">apple.dim_reduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-apple.bhtsne.bhtsne">apple.bhtsne</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-apple.gephi_tools">apple.gephi_tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pomegranate.html">Pomegranate</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">fruitbowl</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Apple</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/apple.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-apple">
+<span id="apple"></span><h1>Apple<a class="headerlink" href="#module-apple" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-apple.analysis_tools">
+<span id="apple-analysis-tools"></span><h2>apple.analysis_tools<a class="headerlink" href="#module-apple.analysis_tools" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-analysis_tools"></span><p>Library of tools for use in document vector analysis</p>
+<dl class="function">
+<dt id="apple.analysis_tools.cosine_mat">
+<code class="descclassname">apple.analysis_tools.</code><code class="descname">cosine_mat</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.analysis_tools.cosine_mat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Cosine matrix from vector matrices a,b</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">a (numpy.2darray): (d-by-n) matrix of  n d-dimensional vectors</p>
+<p class="last">b (numpy.2darray): (d-by-m) matrix of  m d-dimensional vectors</p>
+</dd>
+<dt>Returns:</dt>
+<dd>result (numpy.2darray): (m-by-n) cosine matrix</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="apple.analysis_tools.get_ave_sim">
+<code class="descclassname">apple.analysis_tools.</code><code class="descname">get_ave_sim</code><span class="sig-paren">(</span><em>a</em>, <em>b=None</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.analysis_tools.get_ave_sim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the average cosine similarity score from one or two sets of document vectors</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>a (numpy.2darray):(d-by-n) matrix of n d-dimensional vectors</dd>
+<dt>Kwargs:</dt>
+<dd>b (numpy.2darray):(d-by-n) matrix of n d-dimensional vectors.
+Defaults to None, in which case self-similarity average of &#8216;a&#8217; is computed</dd>
+<dt>Returns:</dt>
+<dd>ave (float): average cosine similarity for all pairs betwwen a and b, 
+or average of self-cosine-similarity for a if b not supplied</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="apple.analysis_tools.get_average_vector">
+<code class="descclassname">apple.analysis_tools.</code><code class="descname">get_average_vector</code><span class="sig-paren">(</span><em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.analysis_tools.get_average_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the mean vector from matrix of document vectors</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>a (numpy.2darray): (d-by-n) matrix of n d-dimensional vectors to</dd>
+<dt>Returns:    </dt>
+<dd>result (numpy.array): d-dimensional vector</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="apple.analysis_tools.get_doi_sims">
+<code class="descclassname">apple.analysis_tools.</code><code class="descname">get_doi_sims</code><span class="sig-paren">(</span><em>a_vecs</em>, <em>a_dois</em>, <em>b_vecs</em>, <em>b_dois</em>, <em>n_maxes=5</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.analysis_tools.get_doi_sims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for get_maxes. Returns most similar documents between sets a and b</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">a_vecs (numpy.2darray):(d-by-n) matrix of n d-dimensional vectors</p>
+<p>a_dois (list): dois of documents in a_vecs</p>
+<p>b_vecs (numpy.2darray):(d-by-n) matrix of n d-dimensional vectors</p>
+<p class="last">b_dois (list): dois of documents in b_vecs</p>
+</dd>
+<dt>Kwargs:</dt>
+<dd>n_maxes (int): number of highest similarities to return (default 5)</dd>
+<dt>Returns:</dt>
+<dd>export (dict): dictionary containing highest results.</dd>
+</dl>
+<p>If a_vecs is a single vector (one document), the function compares this
+pairwise to documents in b_vecs
+if a_vecs is a matrix (collection of documents), the function
+performs comparisons between every doc in a with every doc in b
+The returned dictionary has keys 1...n_maxes, (most similar...nth most similar)
+with values:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">'a_doi'</span></code> : doi of document in a of similarity pair</li>
+<li><code class="docutils literal"><span class="pre">'b_doi'</span></code> : doi of document in b of similarity pair</li>
+<li><code class="docutils literal"><span class="pre">'similarity'</span></code> : cosine similarity</li>
+</ul>
+<p>If a_vecs is a single vector rather than a matrix, the returned dictionary has
+slightly different values:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">'doi'</span></code>:doi in b with high similarity to document a</li>
+<li><code class="docutils literal"><span class="pre">'similarity'</span></code>:cosine similarity</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="apple.analysis_tools.get_max">
+<code class="descclassname">apple.analysis_tools.</code><code class="descname">get_max</code><span class="sig-paren">(</span><em>sim_mat</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.analysis_tools.get_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the highest value in the cosine matrix and its indices</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>sim_mat (numpy.2darray):</dd>
+<dt>Returns:</dt>
+<dd><p class="first">value (numpy.float64): highest value in matrix</p>
+<p>a_ind (int): row of highest value</p>
+<p class="last">b_ind (int): column of highest value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="apple.analysis_tools.get_maxes">
+<code class="descclassname">apple.analysis_tools.</code><code class="descname">get_maxes</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>n_maxes=1</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.analysis_tools.get_maxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the highest similarities between documents in vector matrices a and b</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">a (numpy.2darray): (d-by-n) matrix of  n d-dimensional vectors</p>
+<p class="last">b (numpy.2darray): (d-by-m) matrix of  m d-dimensional vectors</p>
+</dd>
+<dt>Kwargs:</dt>
+<dd>n_maxes (int): number of highest similarities to return (defaults to 1)</dd>
+<dt>Returns:</dt>
+<dd>sim_export (dict): dictionary of dictionaries detailing similarities</dd>
+</dl>
+<p>returns a dictionary with keys 1...n_maxes (most similar to nth most similar)
+and values:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">'similaritity'</span></code>:cosine similarity for document pair,</li>
+<li><code class="docutils literal"><span class="pre">a_ind</span></code> : index of document in a-matrix</li>
+<li><code class="docutils literal"><span class="pre">b_ind</span></code> : index of document in b-matrix</li>
+</ul>
+<p>if a is numerically equal to b, it assumes the documents are the same
+and removes self similarities (the cosine matrix diagonal)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="apple.analysis_tools.get_sim">
+<code class="descclassname">apple.analysis_tools.</code><code class="descname">get_sim</code><span class="sig-paren">(</span><em>v1</em>, <em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.analysis_tools.get_sim" title="Permalink to this definition">¶</a></dt>
+<dd><p>get cosine similarity between two vectors</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>v1 (numpy.array): d-dimensional vector 
+v2 (numpy.array): d-dimensional vector</dd>
+<dt>Returns:</dt>
+<dd>sim (float): the value of cosine(theta) between the two vectors</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="apple.analysis_tools.get_vectors">
+<code class="descclassname">apple.analysis_tools.</code><code class="descname">get_vectors</code><span class="sig-paren">(</span><em>dcit</em>, <em>vector_type='d2v-d'</em>, <em>return_recs=True</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.analysis_tools.get_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get vectors from an orange.docIterators.DocumentIter and pack them into a matrix</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>dcit (orange.docIterators.DocumentIter) : the DocumentIter to stream documents from</dd>
+<dt>Kwargs:</dt>
+<dd><p class="first">vector_type (str): the vector model to use. Default &#8216;d2v-d&#8217; (doc2vec document vectors)</p>
+<p class="last">return_recs (bool): returns the entire records from dcit in addition to vectors and dois</p>
+</dd>
+<dt>Returns:</dt>
+<dd><p class="first">return_mat (numpy.2darray) : The vectors of documents in dcit, packed into matrices</p>
+<p class="last">dois (list) : dois of the documents in the dcit</p>
+</dd>
+<dt>Optional Return:    </dt>
+<dd>recs (dict) : all the records in dcit, keys=dois, values=records. 
+only returned if return_recs flag is set toTrue</dd>
+</dl>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">not a memory friendly operation. Do not use if dcit streams a large number
+of documents (dependent on system but &gt;100 000 will probably crash)</p>
+</div>
+<p>The documents streamed by dcit must have precomputed vectors stored in them.
+The document must have a key &#8216;vectors&#8217; with a dictionary of vectors in it, 
+containing vector_type kwarg argument as key</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-apple.dim_reduction">
+<span id="apple-dim-reduction"></span><h2>apple.dim_reduction<a class="headerlink" href="#module-apple.dim_reduction" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-dim_reduction"></span><p>reduce dimensions of inputted vectors</p>
+<dl class="function">
+<dt id="apple.dim_reduction.reduce_dimensions">
+<code class="descclassname">apple.dim_reduction.</code><code class="descname">reduce_dimensions</code><span class="sig-paren">(</span><em>vecs</em>, <em>tsne=True</em>, <em>dims=2</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.dim_reduction.reduce_dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>reduce dimensions of inputted vectors using TSNE or PCA</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>vecs (list or numpy.2darray):list of n d-dimensional numpy.arrays or d-by-n matrix</dt>
+<dd>containing the vectors to reduce.</dd>
+</dl>
+</dd>
+<dt>Kwargs:</dt>
+<dd><p class="first">tsne (bool): If True, perform BHTSNE reduction, if False, perform PCA reduction</p>
+<p class="last">dims (int): number of dimensions to reduce to (defaults to 2)</p>
+</dd>
+<dt>Returns:</dt>
+<dd>reduced_vecs (numpy.2darray); n-by-dims matrix containing reduced vectors</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="module-apple.bhtsne.bhtsne">
+<span id="apple-bhtsne"></span><h3>apple.bhtsne<a class="headerlink" href="#module-apple.bhtsne.bhtsne" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-bhtsne"></span><p>perform large, efficient, tsne reductions using barnes-hut methods</p>
+<dl class="class">
+<dt id="apple.bhtsne.bhtsne.TSNE">
+<em class="property">class </em><code class="descclassname">apple.bhtsne.bhtsne.</code><code class="descname">TSNE</code><span class="sig-paren">(</span><em>n_components=2</em>, <em>theta=0.5</em>, <em>randseed=-1</em>, <em>perplexity=30.0</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.bhtsne.bhtsne.TSNE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform TSNE reductions</p>
+<dl class="method">
+<dt id="apple.bhtsne.bhtsne.TSNE.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>n_components=2</em>, <em>theta=0.5</em>, <em>randseed=-1</em>, <em>perplexity=30.0</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.bhtsne.bhtsne.TSNE.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>build a TSNE object</p>
+<dl class="docutils">
+<dt>Kwargs:</dt>
+<dd><p class="first">n_components (int): dimensions to reduce to</p>
+<p>theta (float): theta  parameter</p>
+<p>randseed (int): if -1, no randseed, if 0, randseed</p>
+<p class="last">perplexity (float): perplexity parameter</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="apple.bhtsne.bhtsne.TSNE.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#apple.bhtsne.bhtsne.TSNE.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apple.bhtsne.bhtsne.TSNE.bh_tsne">
+<code class="descname">bh_tsne</code><span class="sig-paren">(</span><em>samples</em>, <em>no_dims=2</em>, <em>perplexity=None</em>, <em>theta=None</em>, <em>randseed=-1</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.bhtsne.bhtsne.TSNE.bh_tsne" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform TSNE reduction</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>samples (list): list of d_dimensional vectors to reduce</dd>
+<dt>Kwargs:</dt>
+<dd><p class="first">no_dims (int): dimensions to reduce to, defaults to 2</p>
+<p>perplexity (float): perplexity parameter</p>
+<p>theta (float): theta parameter</p>
+<p>randseed (int): if -1, no random seeding, if 0, use random seeding (default -1)</p>
+<p class="last">verbose (bool): if True, prints progress to stdout</p>
+</dd>
+<dt>Yields:</dt>
+<dd>result (list) : reduced data points, yielded 1 by 1</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="apple.bhtsne.bhtsne.TSNE.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>feed</em>, <em>randseed=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.bhtsne.bhtsne.TSNE.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>wrapper for bh_tsne reduction</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>feed (list or numpy.2darray):list of n d-dimensional numpy.arrays or d-by-n matrix</dt>
+<dd>containing the vectors to reduce.</dd>
+</dl>
+</dd>
+<dt>Kwargs:</dt>
+<dd>randseed (int): if -1, no random seeding, if 0, use random seeding</dd>
+<dt>Returns:</dt>
+<dd>fitted (numpy.2darray): n-by-dims matrix containing reduced vectors</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="apple.bhtsne.bhtsne.TmpDir">
+<em class="property">class </em><code class="descclassname">apple.bhtsne.bhtsne.</code><code class="descname">TmpDir</code><a class="headerlink" href="#apple.bhtsne.bhtsne.TmpDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for temporary directory for communicating to C Program</p>
+<dl class="method">
+<dt id="apple.bhtsne.bhtsne.TmpDir.__enter__">
+<code class="descname">__enter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#apple.bhtsne.bhtsne.TmpDir.__enter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enter the temporary directory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="apple.bhtsne.bhtsne.TmpDir.__exit__">
+<code class="descname">__exit__</code><span class="sig-paren">(</span><em>type</em>, <em>value</em>, <em>traceback</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.bhtsne.bhtsne.TmpDir.__exit__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Leave the temporary directory</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-apple.gephi_tools">
+<span id="apple-gephi-tools"></span><h2>apple.gephi_tools<a class="headerlink" href="#module-apple.gephi_tools" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-gephi_tools"></span><p>tools for tranforming and exporting cosine matrices into gephi networks</p>
+<dl class="function">
+<dt id="apple.gephi_tools.csv_gephi_exporter">
+<code class="descclassname">apple.gephi_tools.</code><code class="descname">csv_gephi_exporter</code><span class="sig-paren">(</span><em>dois</em>, <em>mat</em>, <em>file_name='connect.csv'</em>, <em>threshold=0.35</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.gephi_tools.csv_gephi_exporter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Gephi-readable network graph csv file</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">dois (list): list of n dois of documents included in network, become node labels.</p>
+<p class="last">mat (numpy.2darray): (n-by-n) cosine matrix for n document nodes</p>
+</dd>
+<dt>Kwargs:</dt>
+<dd><p class="first">file_name (str): name of csv file to create (defaults to &#8216;connect.csv&#8217;)</p>
+<p class="last">threshold (float): threshold of cosine similarity weight above which to create edges
+between nodes. If too low, graph can become extremely complex. (default 0.35)</p>
+</dd>
+</dl>
+<p>If threshold is negative, every node will connect with every other node, with O(n^2)
+scaling, problematic if large number of nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="apple.gephi_tools.gexf_gephi_exporter">
+<code class="descclassname">apple.gephi_tools.</code><code class="descname">gexf_gephi_exporter</code><span class="sig-paren">(</span><em>dois</em>, <em>mat</em>, <em>filename='connect.gexf'</em>, <em>threshold=0.35</em>, <em>user_called=True</em><span class="sig-paren">)</span><a class="headerlink" href="#apple.gephi_tools.gexf_gephi_exporter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create Gephi gexf network graph file for cosine mat with labels &#8216;dois&#8217;</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">dois (list): list of n dois of documents included in network, become node labels.</p>
+<p class="last">mat (numpy.2darray): (n-by-n) cosine matrix for n document nodes</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>Kwargs:</dt>
+<dd><p class="first">file_name (str): name of gexf file to create (defaults to &#8216;connect.gexf&#8217;)</p>
+<p>threshold (float): threshold of cosine similarity weight above which to create edges
+between nodes. If too low, graph can become extremely complex. (default 0.35)</p>
+<p class="last">user_called (bool): if True, prints messages to stdout when export complete (default trues)</p>
+</dd>
+</dl>
+<p>If threshold is negative, every node will connect with every other node, with O(n^2)
+scaling, problematic if large number of nodes.
+The weights of edges are scaled from 0.35-1 to range 0-1</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pomegranate.html" class="btn btn-neutral float-right" title="Pomegranate" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="strawberry.html" class="btn btn-neutral" title="Strawberry" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Patrick Lewis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

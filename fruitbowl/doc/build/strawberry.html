@@ -1,0 +1,593 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Strawberry &mdash; fruitbowl 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="fruitbowl 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Apple" href="apple.html"/>
+        <link rel="prev" title="Orange" href="orange.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> fruitbowl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cherry.html">Cherry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orange.html">Orange</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Strawberry</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-strawberry.sanitisers">strawberry.sanitisers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-strawberry.vect_generators">strawberry.vect_generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-strawberry.model_training">strawberry.model_training</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apple.html">Apple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pomegranate.html">Pomegranate</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">fruitbowl</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Strawberry</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/strawberry.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-strawberry">
+<span id="strawberry"></span><h1>Strawberry<a class="headerlink" href="#module-strawberry" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-strawberry.sanitisers">
+<span id="strawberry-sanitisers"></span><h2>strawberry.sanitisers<a class="headerlink" href="#module-strawberry.sanitisers" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-sanitisers"></span><p>classes for data sanitation of scraped language</p>
+<dl class="class">
+<dt id="strawberry.sanitisers.MinimalSanitiser">
+<em class="property">class </em><code class="descclassname">strawberry.sanitisers.</code><code class="descname">MinimalSanitiser</code><span class="sig-paren">(</span><em>punct_file</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.sanitisers.MinimalSanitiser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of Sanitiser, casts to lower case and removes punctuation.</p>
+<dl class="method">
+<dt id="strawberry.sanitisers.MinimalSanitiser.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>punct_file</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.sanitisers.MinimalSanitiser.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a MinimalSanitiser</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>punct_file (str): json file containing list of characters to remove</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="strawberry.sanitisers.MinimalSanitiser.sanitise">
+<code class="descname">sanitise</code><span class="sig-paren">(</span><em>sentence</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.sanitisers.MinimalSanitiser.sanitise" title="Permalink to this definition">¶</a></dt>
+<dd><p>implements Sanitiser.Sanitise. remove punctuation characters from sentence</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>sentence (str): sentence to sanitise</dd>
+<dt>Returns:</dt>
+<dd>export (str): sentence with punctuation removed</dd>
+</dl>
+<p>Process:</p>
+<ol class="arabic simple">
+<li>cast to lower case</li>
+<li>remove whitespace and newlines</li>
+<li>remove unwanted punctuatio</li>
+</ol>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="strawberry.sanitisers.NullSanitiser">
+<em class="property">class </em><code class="descclassname">strawberry.sanitisers.</code><code class="descname">NullSanitiser</code><a class="headerlink" href="#strawberry.sanitisers.NullSanitiser" title="Permalink to this definition">¶</a></dt>
+<dd><p>implementation of Sanitiser that just acts as a wrapper.</p>
+<p>Does not perform any sanitation</p>
+<dl class="method">
+<dt id="strawberry.sanitisers.NullSanitiser.sanitise">
+<code class="descname">sanitise</code><span class="sig-paren">(</span><em>sentence</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.sanitisers.NullSanitiser.sanitise" title="Permalink to this definition">¶</a></dt>
+<dd><p>implements Sanitiser.Sanitise</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>sentence (str): sentence to sanitise</dd>
+<dt>Returns:</dt>
+<dd>export (str): exported sentence. Idenitical to inputted sentences.</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="strawberry.sanitisers.Sanitiser">
+<em class="property">class </em><code class="descclassname">strawberry.sanitisers.</code><code class="descname">Sanitiser</code><a class="headerlink" href="#strawberry.sanitisers.Sanitiser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract class for all Sanitiser objects to implement</p>
+<dl class="attribute">
+<dt id="strawberry.sanitisers.Sanitiser.__metaclass__">
+<code class="descname">__metaclass__</code><a class="headerlink" href="#strawberry.sanitisers.Sanitiser.__metaclass__" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ABCMeta</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="strawberry.sanitisers.Sanitiser.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#strawberry.sanitisers.Sanitiser.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="strawberry.sanitisers.Sanitiser.remove_unicode_punct">
+<code class="descname">remove_unicode_punct</code><span class="sig-paren">(</span><em>sentence</em>, <em>chars</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.sanitisers.Sanitiser.remove_unicode_punct" title="Permalink to this definition">¶</a></dt>
+<dd><p>remove punctuation from a sentence</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">sentence (str): sentence to remove punctuation from</p>
+<p class="last">chars (list): list of punctuation characters to remove</p>
+</dd>
+<dt>Returns:</dt>
+<dd>scrubbed (str): sentence with punctuation removed</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="strawberry.sanitisers.Sanitiser.sanitise">
+<code class="descname">sanitise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.sanitisers.Sanitiser.sanitise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sanitise the inputted sentence</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="strawberry.sanitisers.StemmingSanitiser">
+<em class="property">class </em><code class="descclassname">strawberry.sanitisers.</code><code class="descname">StemmingSanitiser</code><span class="sig-paren">(</span><em>stopwords_file</em>, <em>punct_file</em>, <em>stem_type='SNOWBALL'</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.sanitisers.StemmingSanitiser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of Sanitiser, removes stopwords and punctuation
+from sentences and stems words using one of four stemming algorithms 
+from NLTK.</p>
+<dl class="method">
+<dt id="strawberry.sanitisers.StemmingSanitiser.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>stopwords_file</em>, <em>punct_file</em>, <em>stem_type='SNOWBALL'</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.sanitisers.StemmingSanitiser.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a StemmingSanitiser</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">stopwords_file (str): json file containing list of stopwords to remove</p>
+<p class="last">punct_file (str): json file containing list of characters to remove</p>
+</dd>
+</dl>
+<p>Kwargs:</p>
+<blockquote>
+<div>stem_type (str): &#8216;SNOWBALL&#8217; or &#8216;PORTER&#8217; or &#8216;LANCASTER&#8217; or &#8216;WORDNET&#8217;
+specify 1 of 4 stemming algorithms to use in stemming.
+Defaults to &#8216;SNOWBALL&#8217;</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="strawberry.sanitisers.StemmingSanitiser.sanitise">
+<code class="descname">sanitise</code><span class="sig-paren">(</span><em>sentence</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.sanitisers.StemmingSanitiser.sanitise" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>implements Sanitiser.Sanitise. Remove characters and stopwords from sentence</dt>
+<dd>and stems words to their root words</dd>
+<dt>Args:</dt>
+<dd>sentence (str): sentence to sanitise</dd>
+<dt>Returns:</dt>
+<dd>export (str): sanitised sentence</dd>
+</dl>
+<p>Process:</p>
+<ol class="arabic simple">
+<li>cast to lower case</li>
+<li>remove whitespace and newlines</li>
+<li>remove unwanted punctuation</li>
+<li>remove stopwords</li>
+<li>Perform Stemming on surviving words</li>
+</ol>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="strawberry.sanitisers.StopWordSanitiser">
+<em class="property">class </em><code class="descclassname">strawberry.sanitisers.</code><code class="descname">StopWordSanitiser</code><span class="sig-paren">(</span><em>stopwords_file</em>, <em>punct_file</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.sanitisers.StopWordSanitiser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of Sanitiser, removes stopwords and punctuation from sentences</p>
+<dl class="method">
+<dt id="strawberry.sanitisers.StopWordSanitiser.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>stopwords_file</em>, <em>punct_file</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.sanitisers.StopWordSanitiser.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>build a StopWordSanitiser</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">stopwords_file (str): json file containing list of stopwords to remove</p>
+<p class="last">punct_file (str): json file containing list of characters to remove</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="strawberry.sanitisers.StopWordSanitiser.sanitise">
+<code class="descname">sanitise</code><span class="sig-paren">(</span><em>sentence</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.sanitisers.StopWordSanitiser.sanitise" title="Permalink to this definition">¶</a></dt>
+<dd><p>implements Sanitiser.Sanitise. remove characters and stopwords from sentence</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>sentence (str): sentence to sanitise</dd>
+<dt>Returns:</dt>
+<dd>export (str): sentence with punctuation removed, and stopwords removed</dd>
+</dl>
+<p>Process:</p>
+<ol class="arabic simple">
+<li>cast to lower case</li>
+<li>remove whitespace and newlines</li>
+<li>remove unwanted punctuation</li>
+<li>remove stopwords</li>
+</ol>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-strawberry.vect_generators">
+<span id="strawberry-vect-generators"></span><h2>strawberry.vect_generators<a class="headerlink" href="#module-strawberry.vect_generators" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-vect_generators"></span><p>classes for generating representation vectors from trained models</p>
+<dl class="class">
+<dt id="strawberry.vect_generators.Doc2VecGenerator">
+<em class="property">class </em><code class="descclassname">strawberry.vect_generators.</code><code class="descname">Doc2VecGenerator</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.vect_generators.Doc2VecGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements VectorGenerator. Fetches vectors from doc2vec model</p>
+<dl class="method">
+<dt id="strawberry.vect_generators.Doc2VecGenerator.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.vect_generators.Doc2VecGenerator.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a Doc2VecGenerator model</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>model (gensim.models.doc2vec.Doc2Vec) : model from which to draw
+document vectors from</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="strawberry.vect_generators.Doc2VecGenerator.get_vector">
+<code class="descname">get_vector</code><span class="sig-paren">(</span><em>doi</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.vect_generators.Doc2VecGenerator.get_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>get representation vector for document with doi</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>doi (str): doi for desired document</dd>
+<dt>Returns:</dt>
+<dd>doc_vec (numpy.array): representation vector for desired document</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="strawberry.vect_generators.SentBySentGenerator">
+<em class="property">class </em><code class="descclassname">strawberry.vect_generators.</code><code class="descname">SentBySentGenerator</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.vect_generators.SentBySentGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements VectorGenerator. Generates vectors that are 
+averaged word by word into sentence vectors then
+averaged sentence by sentence into document vector representations.</p>
+<dl class="method">
+<dt id="strawberry.vect_generators.SentBySentGenerator.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.vect_generators.SentBySentGenerator.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a SentBySentGenerator.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>model (gensim.models.Word2Vec or gensim.models.doc2vec.Doc2Vec): model from
+which to draw word component vectors from to aggregate with</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="strawberry.vect_generators.SentBySentGenerator.get_vector">
+<code class="descname">get_vector</code><span class="sig-paren">(</span><em>doc</em>, <em>weights=None</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.vect_generators.SentBySentGenerator.get_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a sentence-by-sentence averaged represenation vector for a document</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>doc (list): document that will be transformed into representation vector.
+format is list of lists of words [[word, word, ...],[word, word,...],...]</dd>
+<dt>KWargs:</dt>
+<dd>weights (list): list of list of weights [[w, w, ...],[w, w,...],...] 
+corresponding to the weight of each word for weighted averaging of
+the word vectors into a document vector. Defaults to None, in 
+which case each word has equal weight, corresponding to 
+simple arithmentic mean</dd>
+<dt>Returns:</dt>
+<dd>doc_vec (numpy.array): document representation vector for inputted document</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="strawberry.vect_generators.VectorGenerator">
+<em class="property">class </em><code class="descclassname">strawberry.vect_generators.</code><code class="descname">VectorGenerator</code><a class="headerlink" href="#strawberry.vect_generators.VectorGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract class for a representation Vector generating object</p>
+<dl class="attribute">
+<dt id="strawberry.vect_generators.VectorGenerator.__metaclass__">
+<code class="descname">__metaclass__</code><a class="headerlink" href="#strawberry.vect_generators.VectorGenerator.__metaclass__" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ABCMeta</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="strawberry.vect_generators.VectorGenerator.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#strawberry.vect_generators.VectorGenerator.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="strawberry.vect_generators.VectorGenerator.dimensionality">
+<code class="descname">dimensionality</code><a class="headerlink" href="#strawberry.vect_generators.VectorGenerator.dimensionality" title="Permalink to this definition">¶</a></dt>
+<dd><p>The dimensionality of vectors returned by this VectorGenerator</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="strawberry.vect_generators.VectorGenerator.get_vector">
+<code class="descname">get_vector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.vect_generators.VectorGenerator.get_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a vector for a doi or sentence</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="strawberry.vect_generators.VectorGenerator.model">
+<code class="descname">model</code><a class="headerlink" href="#strawberry.vect_generators.VectorGenerator.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>The model used in generating vectors</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="strawberry.vect_generators.WordByWordGenerator">
+<em class="property">class </em><code class="descclassname">strawberry.vect_generators.</code><code class="descname">WordByWordGenerator</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.vect_generators.WordByWordGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements VectorGenerator. Generates vectors that are 
+averaged word by word into document vector representations.</p>
+<dl class="method">
+<dt id="strawberry.vect_generators.WordByWordGenerator.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.vect_generators.WordByWordGenerator.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a WordByWordGenerator.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>model (gensim.models.Word2Vec or gensim.models.doc2vec.Doc2Vec): model from
+which to draw word component vectors from to aggregate with</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="strawberry.vect_generators.WordByWordGenerator.get_vector">
+<code class="descname">get_vector</code><span class="sig-paren">(</span><em>doc</em>, <em>weights=None</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.vect_generators.WordByWordGenerator.get_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a word-by-word averaged represenation vector for a document</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>doc (list): document that will be transformed into representation vector.
+format is list of lists of words [[word, word, ...],[word, word,...],...]</dd>
+<dt>KWargs:</dt>
+<dd>weights (list): list of list of weights [[w, w, ...],[w, w,...],...] 
+corresponding to the weight of each word for weighted averaging of
+the word vectors into a document vector. Defaults to None, in 
+which case each word has equal weight, corresponding to 
+simple arithmentic mean</dd>
+<dt>Returns:</dt>
+<dd>doc_vec (numpy.array): document representation vector for inputted document</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-strawberry.model_training">
+<span id="strawberry-model-training"></span><h2>strawberry.model_training<a class="headerlink" href="#module-strawberry.model_training" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-model_training"></span><p>train word2vec and doc2vec models using documentIterator</p>
+<dl class="function">
+<dt id="strawberry.model_training.train_doc2vec">
+<code class="descclassname">strawberry.model_training.</code><code class="descname">train_doc2vec</code><span class="sig-paren">(</span><em>doc_iter</em>, <em>epochs=24</em>, <em>save=False</em>, <em>save_name='doc2vec'</em>, <em>dimensionality=100</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.model_training.train_doc2vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>train a doc2vec model from a set of documents streamed by a doc_iter</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>doc_iterator (orange.doc_iterator.DocumentIter): document iterator for </dt>
+<dd>streaming documents into the model sentence by sentece. Needs 
+to be JsonDiskIter or MongoIter</dd>
+</dl>
+</dd>
+<dt>Kwargs:</dt>
+<dd><p class="first">epochs (int): number of epochs to train for. Defaults to 24</p>
+<dl class="docutils">
+<dt>save (bool): if True, Save the model to disk when training complete. </dt>
+<dd>Defaults to False.</dd>
+</dl>
+<p>save_name (str): file name for saving model to, defaults to &#8216;doc2vec&#8217;</p>
+<dl class="last docutils">
+<dt>dimensionality (int): dimensions of representation vectors to train </dt>
+<dd>Defaults to 100.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd>d2vmodel (gensim.models.doc2vec.Doc2Vec): trained doc2vec model</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="strawberry.model_training.train_word2vec">
+<code class="descclassname">strawberry.model_training.</code><code class="descname">train_word2vec</code><span class="sig-paren">(</span><em>doc_iter</em>, <em>epochs=24</em>, <em>save=False</em>, <em>save_name='word2vec'</em>, <em>sg=1</em>, <em>dimensionality=100</em><span class="sig-paren">)</span><a class="headerlink" href="#strawberry.model_training.train_word2vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>train a doc2vec model from a set of documents streamed by a doc_iter</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>doc_iterator (orange.doc_iterator.DocumentIter): document iterator for streaming</dt>
+<dd>the documents to the model sentence by sentence for training.</dd>
+</dl>
+</dd>
+<dt>Kwargs:</dt>
+<dd><p class="first">epochs (int): number of epochs to train for. Defaults to 24</p>
+<dl class="docutils">
+<dt>save (bool): if True, Save the model to disk when training complete. </dt>
+<dd>Defaults to False.</dd>
+</dl>
+<p>save_name (str): file name for saving model to, defaults to &#8216;word2vec&#8217;</p>
+<p>sg (int): train a skipgram model (1) or a cbow model (0) (defaults to 1)</p>
+<dl class="last docutils">
+<dt>dimensionality (int): dimensions of representation vectors to train </dt>
+<dd>Defaults to 100.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apple.html" class="btn btn-neutral float-right" title="Apple" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="orange.html" class="btn btn-neutral" title="Orange" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Patrick Lewis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

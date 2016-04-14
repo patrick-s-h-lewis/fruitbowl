@@ -1,0 +1,905 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cherry &mdash; fruitbowl 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="fruitbowl 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Orange" href="orange.html"/>
+        <link rel="prev" title="Welcome to fruitbowl’s documentation!" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> fruitbowl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cherry</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-cherry.initialise">cherry.initialise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-cherry.seek">cherry.seek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-cherry.collect">cherry.collect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-cherry.consume">cherry.consume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-cherry.analyse">cherry.analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-cherry.scrapingtools">cherry.scrapingtools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spiders">Spiders</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-cherry.Spiders.SeekSpider">cherry.Spiders.SeekSpider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cherry.Spiders.PickSpider">cherry.Spiders.PickSpider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cherry.Spiders.ShakeSpider">cherry.Spiders.ShakeSpider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cherry.Spiders.MunchSpider">cherry.Spiders.MunchSpider</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#items">Items</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-cherry.Items.CherryItems">cherry.Items</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pipelines">Pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-cherry.Pipelines.CherryPipelines">cherry.Pipelines</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="orange.html">Orange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strawberry.html">Strawberry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apple.html">Apple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pomegranate.html">Pomegranate</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">fruitbowl</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Cherry</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/cherry.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cherry">
+<span id="cherry"></span><h1>Cherry<a class="headerlink" href="#module-cherry" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-cherry.initialise">
+<span id="cherry-initialise"></span><h2>cherry.initialise<a class="headerlink" href="#module-cherry.initialise" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-intialise"></span><p>Set up a scraping run</p>
+<dl class="function">
+<dt id="cherry.initialise.initialise_run">
+<code class="descclassname">cherry.initialise.</code><code class="descname">initialise_run</code><span class="sig-paren">(</span><em>source_file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.initialise.initialise_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a scraping run by creating settings, files and configuring options</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>source_file_name (str):The source urls or dois to scrape with to resolve dois to metadata</dd>
+</dl>
+<p>Create a Scrapy settings object to be referred to in all scraping
+Create a directory based on the current date and time to place results in
+Pickle the settings object so it can be maintained if scraping fails or must pause</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cherry.seek">
+<span id="cherry-seek"></span><h2>cherry.seek<a class="headerlink" href="#module-cherry.seek" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-seek"></span><p>Scraping framework for finding and identifying dois on webpages
+Requires external argument with filename of inputted json file
+The json file must be a list of json objects with fields &#8216;url&#8217;:<code class="docutils literal"><span class="pre">url</span></code> and &#8216;root&#8217;:
+<code class="docutils literal"><span class="pre">the</span> <span class="pre">domain</span> <span class="pre">the</span> <span class="pre">scraper</span> <span class="pre">is</span> <span class="pre">allowed</span> <span class="pre">to</span> <span class="pre">explore</span></code></p>
+<dl class="function">
+<dt id="cherry.seek.perform_scrape">
+<code class="descclassname">cherry.seek.</code><code class="descname">perform_scrape</code><span class="sig-paren">(</span><em>input_list</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.seek.perform_scrape" title="Permalink to this definition">¶</a></dt>
+<dd><p>perform a scrape using seekspider to find webpages containing dois</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>input_list (list): list of dicts with keys <code class="docutils literal"><span class="pre">url</span></code> and <code class="docutils literal"><span class="pre">root</span></code>
+containing the url to start from and the domain to contstrict scraping to</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cherry.collect">
+<span id="cherry-collect"></span><h2>cherry.collect<a class="headerlink" href="#module-cherry.collect" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-collect"></span><p>Module for running PickSpider and ShakeSpider</p>
+<dl class="function">
+<dt id="cherry.collect.get_pick_joblist">
+<code class="descclassname">cherry.collect.</code><code class="descname">get_pick_joblist</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.collect.get_pick_joblist" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the list of scraping destinations for PickSpiders to run on from inputted file</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>file_name (str): name of json file of list of inputted websites</dd>
+<dt>Returns:</dt>
+<dd><p class="first">start_urls (list): list of url strings to visit</p>
+<p class="last">allowed_domains (list): list of allowed domains to constrain spider to</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.collect.get_shake_joblist">
+<code class="descclassname">cherry.collect.</code><code class="descname">get_shake_joblist</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.collect.get_shake_joblist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get dois and list of source urls for a ShakeSpider to run on from inputted file</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>file_name (str): name of json file of list of inputted dois to run</dd>
+<dt>Returns:</dt>
+<dd>dois (list): list of inputted dois to scrape on
+doi_sources (list): list of urls the dois in the list of dois originate from</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.collect.perform_scrape">
+<code class="descclassname">cherry.collect.</code><code class="descname">perform_scrape</code><span class="sig-paren">(</span><em>pick_or_shake</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.collect.perform_scrape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a Scraping run for either a PickSpider or Shakespider.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pick_or_shake (str): string &#8216;pick&#8217; or &#8216;shake&#8217; specifiying what spider to run</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cherry.consume">
+<span id="cherry-consume"></span><h2>cherry.consume<a class="headerlink" href="#module-cherry.consume" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-consume"></span><p>Run a MunchSpider to resolve more metadata from dois with partially resolved metadata 
+from a Crossref Scrape (from  a ShakeSpider or PickSpider)</p>
+<dl class="function">
+<dt id="cherry.consume.get_domains">
+<code class="descclassname">cherry.consume.</code><code class="descname">get_domains</code><span class="sig-paren">(</span><em>dbcoll</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.consume.get_domains" title="Permalink to this definition">¶</a></dt>
+<dd><p>get allowed web domains to constrain the MunchSpider to</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd>dbcoll (object): queriable object (MongoDB cursor or FakeMongo object)
+to get pubisher domains from</dd>
+<dt>Returns:</dt>
+<dd>domains (list): list of web domains to constrain spider to</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.consume.get_joblist">
+<code class="descclassname">cherry.consume.</code><code class="descname">get_joblist</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.consume.get_joblist" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the urls to visit during scraping from the dois in the inputted json file</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>file_name (str): name of json list file to extract dois from, each element
+must have key &#8216;doi&#8217;. Should be list of json serialised 
+CherryItems.CrossRefItems for correct running of code</dd>
+<dt>Returns:</dt>
+<dd><p class="first">doi_links (list): urls to visit for resolving dois in file_name</p>
+<p class="last">doi_sources (dict): keys are dois, values are all additional metadata 
+for the doi found from crossref</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.consume.get_publisher_database">
+<code class="descclassname">cherry.consume.</code><code class="descname">get_publisher_database</code><span class="sig-paren">(</span><em>settings</em>, <em>mongo=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.consume.get_publisher_database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a queryable database for the Munchspider to look up publisher xpaths</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">settings (Scrapy Settings object): The current Scrapy settings</p>
+<p class="last">mongo (bool): True if using mongodb, False if using Fake_Mongo interface</p>
+</dd>
+<dt>Returns:</dt>
+<dd>publisher_database (object): queriable object (MongoDB cursor or FakeMongo object)
+for getting publisher Xpaths at runtime or getting publisher domain names</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.consume.perform_scrape">
+<code class="descclassname">cherry.consume.</code><code class="descname">perform_scrape</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cherry.consume.perform_scrape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a MunchSpider scrape using the current Scrapy Settings</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cherry.analyse">
+<span id="cherry-analyse"></span><h2>cherry.analyse<a class="headerlink" href="#module-cherry.analyse" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-analyse"></span><p>Module for analysing scraping runs and producing reports</p>
+<dl class="function">
+<dt id="cherry.analyse.perform_analysis">
+<code class="descclassname">cherry.analyse.</code><code class="descname">perform_analysis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cherry.analyse.perform_analysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce scraping report after scraping run</p>
+<p>Loads the current settings and analyses collected data in the error datastore
+and complete records datastore. Creates a file with name specified in the settings
+object as &#8216;REPORT_FILE_NAME&#8217;.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cherry.scrapingtools">
+<span id="cherry-scrapingtools"></span><h2>cherry.scrapingtools<a class="headerlink" href="#module-cherry.scrapingtools" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-scrapingtools"></span><p>library of useful functions for use in Cherry module scraping</p>
+<dl class="function">
+<dt id="cherry.scrapingtools.clean_doi">
+<code class="descclassname">cherry.scrapingtools.</code><code class="descname">clean_doi</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.scrapingtools.clean_doi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clean a doi identified by regex pattern matching by removing html tags, commas etc</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>d (str): doi string with html tags attached</dd>
+<dt>Returns:</dt>
+<dd>clean (str): cleaned doi string</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.scrapingtools.dump_record">
+<code class="descclassname">cherry.scrapingtools.</code><code class="descname">dump_record</code><span class="sig-paren">(</span><em>self</em>, <em>record</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.scrapingtools.dump_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>json serialise a scraped record and write it to json list file</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">record (object or primitive): anything json-serialisable to write to file</p>
+<p class="last">file_name (str): name of json file to write serialised record to</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.scrapingtools.finalise_file">
+<code class="descclassname">cherry.scrapingtools.</code><code class="descname">finalise_file</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.scrapingtools.finalise_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a json document list built item-by-item legal and final by appending &#8216;]&#8217;</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>file_name (str): The name of the file to finalise</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.scrapingtools.find_dois">
+<code class="descclassname">cherry.scrapingtools.</code><code class="descname">find_dois</code><span class="sig-paren">(</span><em>txt</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.scrapingtools.find_dois" title="Permalink to this definition">¶</a></dt>
+<dd><p>return list of DOIs in free text</p>
+<p>uses regex modified from <a class="reference external" href="http://stackoverflow.com/questions/27910/finding-a-doi-in-a-document-or-page">http://stackoverflow.com/questions/27910/finding-a-doi-in-a-document-or-page</a>
+Alix Axel&#8217;s regex, with modifications <a class="reference external" href="http://stackoverflow.com/users/89771/alix-axel">http://stackoverflow.com/users/89771/alix-axel</a></p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>txt (str): text corpus to search for dois in</dd>
+<dt>Returns:</dt>
+<dd>dois (list): list of doi strings found in text</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.scrapingtools.get_aff">
+<code class="descclassname">cherry.scrapingtools.</code><code class="descname">get_aff</code><span class="sig-paren">(</span><em>auth</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.scrapingtools.get_aff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalise form of scraped affiliations</p>
+<p>Handles various formats of affiliations scraped from crossref, maping them to a list</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>auth (dict): author information recieved from crossref api</dd>
+<dt>Returns:</dt>
+<dd>affs (list): list of strings of affiliations for author</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.scrapingtools.get_author">
+<code class="descclassname">cherry.scrapingtools.</code><code class="descname">get_author</code><span class="sig-paren">(</span><em>auth</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.scrapingtools.get_author" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalise the form of a scraped author name</p>
+<p>handles various cases of author names and maps them to format &#8216;ABC Lastname&#8217;</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>auth (dict): author information recieved from crossref api</dd>
+<dt>Returns:</dt>
+<dd>clean (str): normalised author name</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.scrapingtools.get_crossref_item">
+<code class="descclassname">cherry.scrapingtools.</code><code class="descname">get_crossref_item</code><span class="sig-paren">(</span><em>mess</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.scrapingtools.get_crossref_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>create :class:CherryItems.CrossRefItem from message recieved from crossref</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>mess (dict): message recieved from Crossref API for particular doi</dd>
+<dt>Returns:</dt>
+<dd>item (CherryItem.CrossRefItem): populated partially complete metadata for article</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.scrapingtools.get_date">
+<code class="descclassname">cherry.scrapingtools.</code><code class="descname">get_date</code><span class="sig-paren">(</span><em>mess</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.scrapingtools.get_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get and Normalise the Earliest date of publication from message recieved from crossref</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>mess (dict): message recieved from crossref API for particular doi</dd>
+<dt>Returns:</dt>
+<dd>pub_date (Datetime): the earliest date in the record, wrapped in datetime object</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.scrapingtools.get_journal">
+<code class="descclassname">cherry.scrapingtools.</code><code class="descname">get_journal</code><span class="sig-paren">(</span><em>journal_list</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.scrapingtools.get_journal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function for :func:get_crossref_item</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd>journal_list (list): list of journals an article was published in (usually length is 0 or 1)</dd>
+<dt>Returns:</dt>
+<dd>journal (str): first journal in journal_list or None if length is zero</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.scrapingtools.get_settings">
+<code class="descclassname">cherry.scrapingtools.</code><code class="descname">get_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cherry.scrapingtools.get_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>load Scrapy settings from pickled state in &#8216;settings.txt&#8217;</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>settings (Scrapy.Settings): A scrapy settings object picked to a text file</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cherry.scrapingtools.initialise_file">
+<code class="descclassname">cherry.scrapingtools.</code><code class="descname">initialise_file</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.scrapingtools.initialise_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a json list file ready to be streamed json objects.</p>
+<p>Creates file and writes &#8216;[&#8216; ready for first json serialised object to directly append to</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>file_name (str): the name of the json file to create</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="spiders">
+<h2>Spiders<a class="headerlink" href="#spiders" title="Permalink to this headline">¶</a></h2>
+<p>4 spiders are included in the project, located in <code class="docutils literal"><span class="pre">cherry.Spiders</span></code></p>
+<div class="section" id="module-cherry.Spiders.SeekSpider">
+<span id="cherry-spiders-seekspider"></span><h3>cherry.Spiders.SeekSpider<a class="headerlink" href="#module-cherry.Spiders.SeekSpider" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-SeekSpider"></span><p>Scrapy spider object for crawling websites to extract dois</p>
+<dl class="class">
+<dt id="cherry.Spiders.SeekSpider.SeekSpider">
+<em class="property">class </em><code class="descclassname">cherry.Spiders.SeekSpider.</code><code class="descname">SeekSpider</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.SeekSpider.SeekSpider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spider for crawling webistes to extract dois</p>
+<dl class="method">
+<dt id="cherry.Spiders.SeekSpider.SeekSpider.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.SeekSpider.SeekSpider.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a SeekSpider</p>
+<dl class="docutils">
+<dt>Kwargs:</dt>
+<dd><p class="first">start_urls (list): list of urls to start scraping with.</p>
+<p class="last">allowed_domains (list):list of domain names to limit scraping to</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.SeekSpider.SeekSpider.parse_obj">
+<code class="descname">parse_obj</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.SeekSpider.SeekSpider.parse_obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>parse a webpage and collect any dois on the page</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd>response (Scrapy Response object): the response object for the current webpage</dd>
+<dt>Yields: </dt>
+<dd>item (Cherry.Items.SeekItem): scrapy item object for storage if dois found on the page</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cherry.Spiders.PickSpider">
+<span id="cherry-spiders-pickspider"></span><h3>cherry.Spiders.PickSpider<a class="headerlink" href="#module-cherry.Spiders.PickSpider" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-PickSpider"></span><p>Scrapy spider object for crawling websites to extract dois and collect metadata</p>
+<dl class="class">
+<dt id="cherry.Spiders.PickSpider.PickSpider">
+<em class="property">class </em><code class="descclassname">cherry.Spiders.PickSpider.</code><code class="descname">PickSpider</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.PickSpider.PickSpider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spider for visiting webpages and extracting dois and retrieving metadata</p>
+<dl class="method">
+<dt id="cherry.Spiders.PickSpider.PickSpider.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.PickSpider.PickSpider.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>make a Pickspider</p>
+<dl class="docutils">
+<dt>Kwargs:</dt>
+<dd><p class="first">start_urls (list): list of websites to visit</p>
+<p class="last">allowed_domains (list): list of domains to constrain the spider to</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.PickSpider.PickSpider.check_doi">
+<code class="descname">check_doi</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.PickSpider.PickSpider.check_doi" title="Permalink to this definition">¶</a></dt>
+<dd><p>check for the existence of a doi</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>response (scrapy Response): scrapy response object for  message received from crossref agency api</dd>
+<dt>Yields:</dt>
+<dd>item (CherryItems.CrossRefItem): uncompleted metadata for article for doi not indexed by crossref</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.PickSpider.PickSpider.errback1">
+<code class="descname">errback1</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.PickSpider.PickSpider.errback1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error handling for failed url request</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>response (scrapy Response): scrapy response object for error message received from server</dd>
+<dt>Yields:</dt>
+<dd>item (CherryItems.BrokenItem): error reporting item</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.PickSpider.PickSpider.errback2">
+<code class="descname">errback2</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.PickSpider.PickSpider.errback2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error handling for failed request to crossrefs</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>response (scrapy Response): scrapy response object for error message received from server</dd>
+<dt>Yields:</dt>
+<dd>request to crossref agency api</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.PickSpider.PickSpider.errback3">
+<code class="descname">errback3</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.PickSpider.PickSpider.errback3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error handling for when a doi doesnt exist</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>response (scrapy Response): scrapy response object for error message received from server</dd>
+<dt>Yields:</dt>
+<dd>item (CherryItems.BrokenItem): error reporting item</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.PickSpider.PickSpider.parse">
+<code class="descname">parse</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.PickSpider.PickSpider.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>parse a webpage, collect dois, send requests to crossref for metadata collection</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>response (scrapy response): Scrapy Response object for the webpage</dd>
+<dt>Yields:</dt>
+<dd>scrapy requests to Crossref for extracted dois</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.PickSpider.PickSpider.parse_crossref">
+<code class="descname">parse_crossref</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.PickSpider.PickSpider.parse_crossref" title="Permalink to this definition">¶</a></dt>
+<dd><p>parse the message from crossref</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>response (scrapy Response): scrapy response object for message received from crossref</dd>
+<dt>Yields:</dt>
+<dd>item (CherryItems.CrossrefItem): partially complete article metadata to store</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.PickSpider.PickSpider.start_requests">
+<code class="descname">start_requests</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.PickSpider.PickSpider.start_requests" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialise and send requests for each url with relevant metadata</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cherry.Spiders.ShakeSpider">
+<span id="cherry-spiders-shakespider"></span><h3>cherry.Spiders.ShakeSpider<a class="headerlink" href="#module-cherry.Spiders.ShakeSpider" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-ShakeSpider"></span><p>Scrapy spider object for retrieving metadata for dois from list of dois</p>
+<dl class="class">
+<dt id="cherry.Spiders.ShakeSpider.ShakeSpider">
+<em class="property">class </em><code class="descclassname">cherry.Spiders.ShakeSpider.</code><code class="descname">ShakeSpider</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.ShakeSpider.ShakeSpider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spider for retrieving metadata for inputted dois</p>
+<dl class="method">
+<dt id="cherry.Spiders.ShakeSpider.ShakeSpider.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.ShakeSpider.ShakeSpider.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>make a shakespider</p>
+<dl class="docutils">
+<dt>Kwargs:</dt>
+<dd><p class="first">dois (list): list of dois to extract metadata from</p>
+<p class="last">doi_sources (list): list of source websites the dois have originated from</p>
+</dd>
+<dt>Yields:</dt>
+<dd>scrapy Requests to Crossref to get doi metadata</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.ShakeSpider.ShakeSpider.check_doi">
+<code class="descname">check_doi</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.ShakeSpider.ShakeSpider.check_doi" title="Permalink to this definition">¶</a></dt>
+<dd><p>check for the existence of a doi</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>response (scrapy Response): scrapy response object for  message received from crossref agency api</dd>
+<dt>Yields:</dt>
+<dd>item (CherryItems.CrossRefItem): uncompleted metadata for article for doi not indexed by crossref</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.ShakeSpider.ShakeSpider.errback2">
+<code class="descname">errback2</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.ShakeSpider.ShakeSpider.errback2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error handling for failed request to crossrefs</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>response (scrapy Response): scrapy response object for error message received from server</dd>
+<dt>Yields:</dt>
+<dd>request to crossref agency api</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.ShakeSpider.ShakeSpider.errback3">
+<code class="descname">errback3</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.ShakeSpider.ShakeSpider.errback3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error handling for when a doi doesnt exist</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>response (scrapy Response): scrapy response object for error message received from server</dd>
+<dt>Yields:</dt>
+<dd>item (CherryItems.BrokenItem): error reporting item</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.ShakeSpider.ShakeSpider.parse">
+<code class="descname">parse</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.ShakeSpider.ShakeSpider.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>parse the message from crossref</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>response (scrapy Response): scrapy response object for message received from crossref</dd>
+<dt>Yields:</dt>
+<dd>item (CherryItems.CrossrefItem): partially complete article metadata to store</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.ShakeSpider.ShakeSpider.start_requests">
+<code class="descname">start_requests</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.ShakeSpider.ShakeSpider.start_requests" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialise and send requests</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cherry.Spiders.MunchSpider">
+<span id="cherry-spiders-munchspider"></span><h3>cherry.Spiders.MunchSpider<a class="headerlink" href="#module-cherry.Spiders.MunchSpider" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-MunchSpider"></span><p>Scrapy spider object for collecting metadata from publisher webpages</p>
+<dl class="class">
+<dt id="cherry.Spiders.MunchSpider.MunchSpider">
+<em class="property">class </em><code class="descclassname">cherry.Spiders.MunchSpider.</code><code class="descname">MunchSpider</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.MunchSpider.MunchSpider" title="Permalink to this definition">¶</a></dt>
+<dd><p>MunchSpider scrapy crawlspider parses a list of dx.doi.org/&lt;doi&gt;
+links to extract metadata from publishers</p>
+<dl class="method">
+<dt id="cherry.Spiders.MunchSpider.MunchSpider.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.MunchSpider.MunchSpider.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a MunchSpider</p>
+<dl class="docutils">
+<dt>Kwargs:</dt>
+<dd><p class="first">start_urls (list): list of dx.doi.org/&lt;doi&gt; links to visit</p>
+<p>allowed_domains (list): list of allowed domains the spider may visit</p>
+<p>publisher_database (object): either a mongodb client of Fake_mongo interface
+that when queried, gives xpaths to publisher webpage</p>
+<p class="last">crossref_items (dict) = partially resolved doi metadata items</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.MunchSpider.MunchSpider.choose_items">
+<code class="descname">choose_items</code><span class="sig-paren">(</span><em>itemlist</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.MunchSpider.MunchSpider.choose_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>return most plausable item from a list of possible resolved items</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>itemlist (list): list of CherryItems.CompleteItem objects</dd>
+<dt>Returns:</dt>
+<dd>best_item (CherryItems.Complete_Item): item in itemlist with most completed fields</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.MunchSpider.MunchSpider.errback1">
+<code class="descname">errback1</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.MunchSpider.MunchSpider.errback1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle request error for redirection to publisher websites</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>response (Scrapy Response): failure message</dd>
+<dt>Returns:</dt>
+<dd>item (CherryItems.BrokenItem): failed collection item detailing failure</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.MunchSpider.MunchSpider.get_item">
+<code class="descname">get_item</code><span class="sig-paren">(</span><em>response</em>, <em>paths</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.MunchSpider.MunchSpider.get_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>get complete metadata from publisher webpage</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd><p class="first">response (Scrapy Response): scrapy response object for current page</p>
+<p class="last">paths (list): Xpaths to extract meta data</p>
+</dd>
+<dt>Returns:</dt>
+<dd>item (CherryItems.CompleteItem): complete metadata for associated article</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.MunchSpider.MunchSpider.get_pub_paths">
+<code class="descname">get_pub_paths</code><span class="sig-paren">(</span><em>publisher</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.MunchSpider.MunchSpider.get_pub_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get xpaths for a specified publisher website</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>publisher (str): website of publisher to query database on</dd>
+<dt>Returns:</dt>
+<dd>publishers_iterator (iterator): iterator that contains xpaths to try for current publisher</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.MunchSpider.MunchSpider.parse">
+<code class="descname">parse</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.MunchSpider.MunchSpider.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>parse publisher webpage and extract article metadata</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd>response(Scrapy Response): scrapy response object for recieved webpage</dd>
+<dt>Yields:</dt>
+<dd>item (CherryItems.CompleteItem or BrokenItem): succefully resolved record
+or error reporting item if error in collection unrecoverable</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Spiders.MunchSpider.MunchSpider.start_requests">
+<code class="descname">start_requests</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Spiders.MunchSpider.MunchSpider.start_requests" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialise and send requests for each url with relevant metadata</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="items">
+<h2>Items<a class="headerlink" href="#items" title="Permalink to this headline">¶</a></h2>
+<p>Items are located in <code class="docutils literal"><span class="pre">cherry.Items</span></code></p>
+<div class="section" id="module-cherry.Items.CherryItems">
+<span id="cherry-items"></span><h3>cherry.Items<a class="headerlink" href="#module-cherry.Items.CherryItems" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-Cherryitems"></span><dl class="class">
+<dt id="cherry.Items.CherryItems.BrokenItem">
+<em class="property">class </em><code class="descclassname">cherry.Items.CherryItems.</code><code class="descname">BrokenItem</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Items.CherryItems.BrokenItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>scrapy item for encapsulating error messages in scraping</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cherry.Items.CherryItems.CompleteItem">
+<em class="property">class </em><code class="descclassname">cherry.Items.CherryItems.</code><code class="descname">CompleteItem</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Items.CherryItems.CompleteItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scrapy item for encapsulating complete metadata for an article</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cherry.Items.CherryItems.CrossRefItem">
+<em class="property">class </em><code class="descclassname">cherry.Items.CherryItems.</code><code class="descname">CrossRefItem</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Items.CherryItems.CrossRefItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>scrapy item for encapuslating partially complete metadata for an article</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cherry.Items.CherryItems.SeekItem">
+<em class="property">class </em><code class="descclassname">cherry.Items.CherryItems.</code><code class="descname">SeekItem</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Items.CherryItems.SeekItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>scraping item for encapsulating urls that may contain dois</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="pipelines">
+<h2>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this headline">¶</a></h2>
+<p>Pipelines for processing scraped items are located in <code class="docutils literal"><span class="pre">cherry.Pipelines</span></code></p>
+<div class="section" id="module-cherry.Pipelines.CherryPipelines">
+<span id="cherry-pipelines"></span><h3>cherry.Pipelines<a class="headerlink" href="#module-cherry.Pipelines.CherryPipelines" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-CherryPipelines"></span><p>Data processing pipeline to record scrapy items correctly</p>
+<dl class="class">
+<dt id="cherry.Pipelines.CherryPipelines.CherryPipeline">
+<em class="property">class </em><code class="descclassname">cherry.Pipelines.CherryPipelines.</code><code class="descname">CherryPipeline</code><span class="sig-paren">(</span><em>settings</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Pipelines.CherryPipelines.CherryPipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pipeline for handing scrapy items generated in scraping</p>
+<dl class="method">
+<dt id="cherry.Pipelines.CherryPipelines.CherryPipeline.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>settings</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Pipelines.CherryPipelines.CherryPipeline.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a cherryPipeline</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>settings (Scrapy Settings): Settings object in use for this scraping run</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cherry.Pipelines.CherryPipelines.CherryPipeline.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#cherry.Pipelines.CherryPipelines.CherryPipeline.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Pipelines.CherryPipelines.CherryPipeline.close_spider">
+<code class="descname">close_spider</code><span class="sig-paren">(</span><em>spider</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Pipelines.CherryPipelines.CherryPipeline.close_spider" title="Permalink to this definition">¶</a></dt>
+<dd><p>perform actions on termination of spider scraping</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>spider (Scrapy Spider): spider that is closing</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cherry.Pipelines.CherryPipelines.CherryPipeline.process_item">
+<code class="descname">process_item</code><span class="sig-paren">(</span><em>item</em>, <em>spider</em><span class="sig-paren">)</span><a class="headerlink" href="#cherry.Pipelines.CherryPipelines.CherryPipeline.process_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process an item generated in scraping</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">item (CherryItem): item to process</p>
+<p class="last">spider (scrapy.Spider): Current spider performing scrape</p>
+</dd>
+<dt>Returns:</dt>
+<dd>item (CherryItem): processed item</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="orange.html" class="btn btn-neutral float-right" title="Orange" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to fruitbowl’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Patrick Lewis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

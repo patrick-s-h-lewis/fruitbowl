@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Orange &mdash; fruitbowl 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="fruitbowl 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Strawberry" href="strawberry.html"/>
+        <link rel="prev" title="Cherry" href="cherry.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> fruitbowl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cherry.html">Cherry</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Orange</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-orange.corpus">orange.corpus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-orange.corpus_stats">orange.corpus_stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-orange.docIterators">orange.docIterators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="strawberry.html">Strawberry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apple.html">Apple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pomegranate.html">Pomegranate</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">fruitbowl</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Orange</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/orange.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-orange">
+<span id="orange"></span><h1>Orange<a class="headerlink" href="#module-orange" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-orange.corpus">
+<span id="orange-corpus"></span><h2>orange.corpus<a class="headerlink" href="#module-orange.corpus" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-corpus"></span><p>Corpus object for use in corpus manipulation</p>
+<dl class="class">
+<dt id="orange.corpus.Corpus">
+<em class="property">class </em><code class="descclassname">orange.corpus.</code><code class="descname">Corpus</code><span class="sig-paren">(</span><em>name</em>, <em>doc_iter</em>, <em>dictionary=None</em>, <em>tfidf_model=None</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.corpus.Corpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Corpus represents a manipulation interface for operations for a text corpus
+generated from a scraping run from Cherry</p>
+<dl class="method">
+<dt id="orange.corpus.Corpus.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name</em>, <em>doc_iter</em>, <em>dictionary=None</em>, <em>tfidf_model=None</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.corpus.Corpus.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Corpus Object</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>name (str): The desired name of the corpus (Appears in dumps)
+doc_iter (docIterator): The :module:docIterator Object that streams the documents
+that make up the corpus</dd>
+<dt>Kwargs:</dt>
+<dd><p class="first">dictionary (gensim.corpora.Dictionary): The tokenisation dictionary for the corpus. 
+Defaults to None if not specified and the dictionary is built from iterating the documents</p>
+<p class="last">tfidf_model (gensim.models.tfidf_model): The tfidf model for the corpus. Defaults
+to None if not specified. Call :method: get_tfidf_model to build a tfidf model for a corpus</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="orange.corpus.Corpus.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#orange.corpus.Corpus.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="orange.corpus.Corpus.export2jsonfile">
+<code class="descname">export2jsonfile</code><span class="sig-paren">(</span><em>file_name=None</em>, <em>tfidf=False</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.corpus.Corpus.export2jsonfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export and save the corpus to disk as Json</p>
+<dl class="docutils">
+<dt>Kwargs:</dt>
+<dd><p class="first">file_name (str): the name of the file to be produced. Defaults to None
+If filen_name is None, the produced file has the name of the corpus</p>
+<p class="last">tfidf (bool): whether to export the corpus with tfidf weights
+defaults to False (do not include tfidf weights)</p>
+</dd>
+</dl>
+<p>The Exported json file includes everything from the document store the corpus streams from.
+if tfidf is chosen ,it also includes <code class="docutils literal"><span class="pre">'doc_weights'</span></code> and <code class="docutils literal"><span class="pre">'sent_weights'</span></code> for
+document tfidf weightings and sentence-by-sentence tfidf weightings</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="orange.corpus.Corpus.generate_stats">
+<code class="descname">generate_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#orange.corpus.Corpus.generate_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate statistics about the corpus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="orange.corpus.Corpus.get_bow_doc">
+<code class="descname">get_bow_doc</code><span class="sig-paren">(</span><em>sent</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.corpus.Corpus.get_bow_doc" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the bag-of-words representation of a document/sentence</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd>sent (list): list of strings to return as bag-of-words representation</dd>
+<dt>Returns: </dt>
+<dd>repr (list): list of (token (int), frequency (int)) tuples,
+the representation of inputted document in BOW space</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="orange.corpus.Corpus.get_sample">
+<code class="descname">get_sample</code><span class="sig-paren">(</span><em>sample_size</em>, <em>return_type='DOI'</em>, <em>doc_iter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.corpus.Corpus.get_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a random sample of documents from the corpus</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>sample_size (int): the number of documents to include in the sample</dd>
+<dt>Kwargs:</dt>
+<dd><p class="first">return_type (str): the iter_type to switch the document iterator to.
+In other words, what type of sample to return. Defaults to &#8216;DOI&#8217;, 
+which is <code class="docutils literal"><span class="pre">{'doi':doi,'doc':list</span> <span class="pre">of</span> <span class="pre">sentence</span> <span class="pre">lists}</span></code></p>
+<p class="last">doc_iter (docIterator): the docIterator to draw the sample from. Default to None.
+if doc_iter is None, it uses the Corpus object&#8217;s docIterator</p>
+</dd>
+<dt>Returns:</dt>
+<dd>sample (list): list of randomrecords from the corpus</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="orange.corpus.Corpus.get_tfidf_doc">
+<code class="descname">get_tfidf_doc</code><span class="sig-paren">(</span><em>sent</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.corpus.Corpus.get_tfidf_doc" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the TF-IDF representation of a document/sentence</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd>sent (list): list of strings to return as TFIDF representation</dd>
+<dt>Returns: </dt>
+<dd><dl class="first last docutils">
+<dt>repr (list): list of (token (int), weight (float)) tuples,</dt>
+<dd>the representation of inputted document in TF-IDF space</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="orange.corpus.Corpus.rebuild_dicts">
+<code class="descname">rebuild_dicts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#orange.corpus.Corpus.rebuild_dicts" title="Permalink to this definition">¶</a></dt>
+<dd><p>rebuild the dictionaries if the document corpus has changed</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-orange.corpus_stats">
+<span id="orange-corpus-stats"></span><h2>orange.corpus_stats<a class="headerlink" href="#module-orange.corpus_stats" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-corpus_stats"></span><p>functions for generating statistics on document collections</p>
+<dl class="function">
+<dt id="orange.corpus_stats.doc_len_distro">
+<code class="descclassname">orange.corpus_stats.</code><code class="descname">doc_len_distro</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.corpus_stats.doc_len_distro" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate a predicted number of documents with a given word count</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>x (int): document word count</dd>
+<dt>Returns:</dt>
+<dd>y (int): predicted number of documents in corpus with x words</dd>
+</dl>
+<p>It was determined the document distribution of Delta6 followed a boltzman
+distribution of the functional form:
+<code class="docutils literal"><span class="pre">5.991524457330881*x**2*math.exp(-0.00034375*x**2)</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="orange.corpus_stats.get_corpus_stats">
+<code class="descclassname">orange.corpus_stats.</code><code class="descname">get_corpus_stats</code><span class="sig-paren">(</span><em>doc_iter</em>, <em>outfile_name</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.corpus_stats.get_corpus_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>get statistics about a collection of documents</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>doc_iter (docIterator) : an iterator that streams the corpus documents
+outfile_name (str): filename to save plots as</dd>
+<dt>Returns:</dt>
+<dd>statistics (dict): dictionary with generated corpus statistics</dd>
+</dl>
+<ul class="simple">
+<li>This function produces two plots, a zipfian plot and document word count distribution</li>
+<li>The function also produces a csv file of ziphian data</li>
+<li>The function also produces a csv file of document word count data</li>
+<li>The function also produces a text document with a statistics summary</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="orange.corpus_stats.plot_doc_length_distro">
+<code class="descclassname">orange.corpus_stats.</code><code class="descname">plot_doc_length_distro</code><span class="sig-paren">(</span><em>lens</em>, <em>freqs</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.corpus_stats.plot_doc_length_distro" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the distibution of document lengths in a corpus</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">lens (list): list of document word lengths</p>
+<p>freqs (list): list of corresponding frequencies of the document word lengths in the corpus</p>
+<p class="last">file_name (str): name of the png file to save the plot to</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="orange.corpus_stats.plot_zipfian">
+<code class="descclassname">orange.corpus_stats.</code><code class="descname">plot_zipfian</code><span class="sig-paren">(</span><em>log_freqs</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.corpus_stats.plot_zipfian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot a Zipfian plot and straight line of best fit and zipfian data</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">log_freqs (list): base 10 log of frequency of words in a text corpus
+in decending order</p>
+<p class="last">file_name (str): name of the png file to save the plot to</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-orange.docIterators">
+<span id="orange-dociterators"></span><h2>orange.docIterators<a class="headerlink" href="#module-orange.docIterators" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-docIterators"></span><p>docIterators is a collection of objects used for streaming records from the
+data source in a memory-friendly way</p>
+<dl class="class">
+<dt id="orange.docIterators.DocumentIter">
+<em class="property">class </em><code class="descclassname">orange.docIterators.</code><code class="descname">DocumentIter</code><a class="headerlink" href="#orange.docIterators.DocumentIter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract class for all DocumentIter objects to implement</p>
+<dl class="method">
+<dt id="orange.docIterators.DocumentIter.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.DocumentIter.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>yield the records one-by-one</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="orange.docIterators.DocumentIter.__metaclass__">
+<code class="descname">__metaclass__</code><a class="headerlink" href="#orange.docIterators.DocumentIter.__metaclass__" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">ABCMeta</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="orange.docIterators.DocumentIter.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#orange.docIterators.DocumentIter.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="orange.docIterators.DocumentIter.iter_type">
+<code class="descname">iter_type</code><a class="headerlink" href="#orange.docIterators.DocumentIter.iter_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The format to yield the records as</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="orange.docIterators.DocumentIter.sanitiser">
+<code class="descname">sanitiser</code><a class="headerlink" href="#orange.docIterators.DocumentIter.sanitiser" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sanitiser object used to clean the documents in streaming</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="orange.docIterators.DocumentIter.size">
+<code class="descname">size</code><a class="headerlink" href="#orange.docIterators.DocumentIter.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of records in the datastore</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="orange.docIterators.DocumentIter.source">
+<code class="descname">source</code><a class="headerlink" href="#orange.docIterators.DocumentIter.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>The data source for the records</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="orange.docIterators.JsonDiskIter">
+<em class="property">class </em><code class="descclassname">orange.docIterators.</code><code class="descname">JsonDiskIter</code><span class="sig-paren">(</span><em>txf</em>, <em>sanit=None</em>, <em>iter_type='SIMPLE'</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.JsonDiskIter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements DocumentIter for a json file on disk containing a list of records.</p>
+<p>Implemented iter_types:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">'SIMPLE'</span></code>: yields [word, word, word...] for each record</li>
+<li><code class="docutils literal"><span class="pre">'SENTENCES'</span></code>: yields [word, word,...] for each sentence in each record</li>
+<li><code class="docutils literal"><span class="pre">'DOI'</span></code>: yields {&#8216;doi&#8217;:doi,&#8217;doc&#8217;:[[w,w...][w,w...],...]} for each record</li>
+<li><code class="docutils literal"><span class="pre">'LABELED_SENTENCES'</span></code>: yields a gensim.models.doc2vec.LabeledSentence for
+each sentence in each record</li>
+<li><code class="docutils literal"><span class="pre">'VECTORS'</span></code>: yields {&#8216;doi&#8217;:doi,&#8217;vectors&#8217;:vectors} for each record. Vectors
+is usually a dictionary of different vector representations.</li>
+<li><code class="docutils literal"><span class="pre">'EVERTYTHING'</span></code>: yields dict with everything found in the datasource per record</li>
+</ul>
+<dl class="method">
+<dt id="orange.docIterators.JsonDiskIter.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>txf</em>, <em>sanit=None</em>, <em>iter_type='SIMPLE'</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.JsonDiskIter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a JsonDiskIter</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>txf (str): the json list file data source</dd>
+<dt>Kwargs:</dt>
+<dd><p class="first">sanit (Stawberry.sanitiser.Sanitiser): The sanitiser to use in streaming 
+from data source. (Defaults to None, and uses a NullSanitiser)</p>
+<p class="last">iter_type (str): defaults to &#8216;SIMPLE&#8217;, string specifying return type</p>
+</dd>
+</dl>
+<p>The textfile <code class="docutils literal"><span class="pre">txf</span></code> json list requires each entry to have keys:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">'doc'</span></code> OR &#8216;title&#8217; and <code class="docutils literal"><span class="pre">'abstract'</span></code></li>
+<li><code class="docutils literal"><span class="pre">'doi'</span></code></li>
+<li><code class="docutils literal"><span class="pre">'vectors'</span></code> if using <code class="docutils literal"><span class="pre">'VECTORS'</span></code> as iter_type</li>
+</ol>
+</dd></dl>
+
+<dl class="method">
+<dt id="orange.docIterators.JsonDiskIter.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.JsonDiskIter.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over the DocumentIterator</p>
+<dl class="docutils">
+<dt>Yields:</dt>
+<dd>export (list or dict): the record to return (dependent on iter_type)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="orange.docIterators.MemoryIter">
+<em class="property">class </em><code class="descclassname">orange.docIterators.</code><code class="descname">MemoryIter</code><span class="sig-paren">(</span><em>source</em>, <em>sanit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.MemoryIter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements DocumentIter for data store list in memory</p>
+<p>Implemented iter_types:
+* <code class="docutils literal"><span class="pre">'SIMPLE'</span></code>: yields [word, word, word...] for each record</p>
+<dl class="method">
+<dt id="orange.docIterators.MemoryIter.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>source</em>, <em>sanit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.MemoryIter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a MemoryIter</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>txf (str): the list in memory to iterate over</dd>
+<dt>Kwargs:    </dt>
+<dd>sanit (Stawberry.sanitiser.Sanitiser): The sanitiser to use in streaming 
+from data source. (Defaults to None, and uses a NullSanitiser )</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="orange.docIterators.MemoryIter.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.MemoryIter.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over the DocumentIterator</p>
+<dl class="docutils">
+<dt>Yields:</dt>
+<dd>export (list or dict): the record to return (dependent on iter_type)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="orange.docIterators.MongoIter">
+<em class="property">class </em><code class="descclassname">orange.docIterators.</code><code class="descname">MongoIter</code><span class="sig-paren">(</span><em>db_conn</em>, <em>query=None</em>, <em>sanit=None</em>, <em>iter_type='SIMPLE'</em>, <em>from_list=None</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.MongoIter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements DocumentIter for a MongoDB database collection.</p>
+<p>Implemented iter_types:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">'SIMPLE'</span></code>: yields [word, word, word...] for each record</li>
+<li><code class="docutils literal"><span class="pre">'SENTENCES'</span></code>: yields [word, word,...] for each sentence in each record</li>
+<li><code class="docutils literal"><span class="pre">'DOI'</span></code>: yields {&#8216;doi&#8217;:doi,&#8217;doc&#8217;:[[w,w...][w,w...],...]} for each record</li>
+<li><code class="docutils literal"><span class="pre">'LABELED_SENTENCES'</span></code>: yields a gensim.models.doc2vec.LabeledSentence for
+each sentence in each record</li>
+<li><code class="docutils literal"><span class="pre">'VECTORS'</span></code>: yields {&#8216;doi&#8217;:doi,&#8217;vectors&#8217;:vectors} for each record. Vectors
+is usually a dictionary of different vector representations.</li>
+<li><code class="docutils literal"><span class="pre">'EVERTYTHING'</span></code>: yields dict with everything found in the datasource per record</li>
+</ul>
+<dl class="method">
+<dt id="orange.docIterators.MongoIter.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>db_conn</em>, <em>query=None</em>, <em>sanit=None</em>, <em>iter_type='SIMPLE'</em>, <em>from_list=None</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.MongoIter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>build a MongoIter</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>db_conn (list): [mongourl (str),database_name(str),collection_name(str)]</dd>
+<dt>Kwargs:</dt>
+<dd><p class="first">query (dict): MonogDB query (defaults to None, resulting in whole dataset
+being streamed)</p>
+<p>sanit (Stawberry.sanitiser.Sanitiser): The sanitiser to use in streaming 
+from data source. (Defaults to None, and uses a NullSanitiser)</p>
+<p>iter_type (str): defaults to &#8216;SIMPLE&#8217;, string specifying return type</p>
+<p class="last">from_list (list): list of dois to stream data from (alternative to query)
+defaults to None (query  keyword is used)</p>
+</dd>
+</dl>
+<p>The MongoDB document must have fields:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">'doc'</span></code></li>
+<li><code class="docutils literal"><span class="pre">'doi'</span></code></li>
+<li><code class="docutils literal"><span class="pre">'vectors'</span></code> if using <code class="docutils literal"><span class="pre">'VECTORS'</span></code> as iter_type</li>
+</ol>
+</dd></dl>
+
+<dl class="method">
+<dt id="orange.docIterators.MongoIter.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.MongoIter.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over the DocumentIterator</p>
+<dl class="docutils">
+<dt>Yields:</dt>
+<dd>export (list or dict): the record to return (dependent on iter_type)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="orange.docIterators.MongoIter.get_record">
+<code class="descname">get_record</code><span class="sig-paren">(</span><em>doi</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.MongoIter.get_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>get single record</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>doi (str): doi of record to return</dd>
+<dt>Returns:</dt>
+<dd>export (dict): mongodb document of requested doi</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="orange.docIterators.SimpleDiskIter">
+<em class="property">class </em><code class="descclassname">orange.docIterators.</code><code class="descname">SimpleDiskIter</code><span class="sig-paren">(</span><em>txf</em>, <em>sanit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.SimpleDiskIter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements DocumentIter for file on disk, each line containing a document of words</p>
+<dl class="docutils">
+<dt>Implemented iter_types:</dt>
+<dd>&#8216;SIMPLE&#8217;: yields [word, word, word...] for each record</dd>
+</dl>
+<dl class="method">
+<dt id="orange.docIterators.SimpleDiskIter.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>txf</em>, <em>sanit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.SimpleDiskIter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a SimpleDiskIter</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>txf (str): the text file data source</dd>
+<dt>Kwargs:    </dt>
+<dd>sanit (Stawberry.sanitiser.Sanitiser): The sanitiser to use in streaming 
+from data source. (Defaults to None, and uses a NullSanitiser )</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="orange.docIterators.SimpleDiskIter.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.SimpleDiskIter.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over the DocumentIterator</p>
+<dl class="docutils">
+<dt>Yields:</dt>
+<dd>doc (list or dict): the record to return (list of words)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="orange.docIterators.progress">
+<code class="descclassname">orange.docIterators.</code><code class="descname">progress</code><span class="sig-paren">(</span><em>ind</em>, <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#orange.docIterators.progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a Progress Bar for a Document Iterator to the command line</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">ind (int): the index of the current record</p>
+<p class="last">size (int): the maximum possible record</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="strawberry.html" class="btn btn-neutral float-right" title="Strawberry" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cherry.html" class="btn btn-neutral" title="Cherry" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Patrick Lewis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
